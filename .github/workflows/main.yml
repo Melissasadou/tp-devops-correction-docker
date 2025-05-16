@@ -24,7 +24,6 @@ jobs:
         run: mvn -f simple-api/pom.xml clean verify
 
       - name: Analyse avec SonarCloud
-        working-directory: simple-api
         run: |
           cd simple-api
           mvn -B verify sonar:sonar \
