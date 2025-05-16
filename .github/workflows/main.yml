@@ -25,11 +25,14 @@ jobs:
 
       - name: Analyse avec SonarCloud
         working-directory: simple-api
-        run: mvn -B verify sonar:sonar \
+        run: |
+          cd simple-api
+          mvn -B verify sonar:sonar \
           -Dsonar.projectKey=Melissasadou_tp-devops-correction-docker \
           -Dsonar.organization=melissasadou \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+
 
   build-and-push-docker-image:
     needs: test-backend
